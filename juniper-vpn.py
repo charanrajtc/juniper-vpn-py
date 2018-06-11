@@ -23,7 +23,7 @@ import socket
 import netifaces
 import datetime
 
-debug = False
+debug = True
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -256,6 +256,10 @@ class juniper_vpn(object):
         self.last_connect = time.time();
 
         dsid = self.find_cookie('DSID').value
+        # exit after printing dsid 
+        print 'DSID=%s' % (dsid)
+        return cleanup()
+        
         action = []
         for arg in self.args.action:
             arg = arg.replace('%DSID%', dsid).replace('%HOST%', self.args.host)
