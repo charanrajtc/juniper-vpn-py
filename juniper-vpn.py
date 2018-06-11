@@ -213,7 +213,7 @@ class juniper_vpn(object):
             self.key = None
 
         self.br.select_form(nr=0)
-        self.br.form['username'] = self.args.username
+        self.br.form['Username'] = self.args.username
         self.br.form['password'] = self.args.password
         if self.args.pass_prefix:
             if self.pass_postfix:
